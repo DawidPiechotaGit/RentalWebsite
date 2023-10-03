@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import Logo from "../images/logo/logo.png";
 
 const StyledList = styled.ul`
   display: flex;
@@ -7,10 +8,30 @@ const StyledList = styled.ul`
   gap: 25px;
 `;
 
+const Logoimg = styled.img`
+  width: 150px;
+  height: 50px;
+`;
+
+const NavContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 25px;
+`;
+
+const BtnContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+`;
+
 export function Navbar() {
   return (
     <>
-      <div>
+      <NavContainer className="nav-container">
+        <Logoimg src={Logo} />
         <StyledList>
           <li>
             <NavLink to="/home">Home</NavLink>
@@ -25,7 +46,11 @@ export function Navbar() {
             <NavLink to="/team">The Team</NavLink>
           </li>
         </StyledList>
-      </div>
+        <BtnContainer className="btn-container">
+          <button>Sign In</button>
+          <button>Register</button>
+        </BtnContainer>
+      </NavContainer>
     </>
   );
 }
